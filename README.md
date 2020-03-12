@@ -22,4 +22,4 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-"# 京东商城混合开发" 
+"# JD-vue"
