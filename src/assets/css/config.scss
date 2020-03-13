@@ -1,0 +1,16 @@
+// 定义预计的根元素大小
+$rootFontSize: 375/10;
+
+// 定义像素转化为 rem 的函数
+@function px2rem($px){
+  @return $px/$rootFontSize + rem;
+}
+
+//  定义正文的 字体大小
+$fontSize: px2rem(14);
+
+// 主题色
+$mainColor: #d81e06;
+
+// 分割线颜色
+$lineColor: #e5e5e5;
