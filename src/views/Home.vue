@@ -1,13 +1,17 @@
 <template>
-    <div>Home</div>
+    <div class="home">Home</div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  created () {
+    console.log('home')
+  }
 }
 </script>
 
 <style lang="scss">
-
+  .home{
+  }
 </style>

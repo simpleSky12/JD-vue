@@ -1,25 +1,31 @@
 <template>
     <div class="main">
-      <home></home>
+      <!--动态组件-->
+      <component :is="currentComponent"></component>
       <tool-bar @changeMenu="changeMenu"></tool-bar>
     </div>
 </template>
 
 <script>
 import ToolBar from '../components/ToolBar'
-import Home from './Home'
-import router from '../router'
 
 export default {
-  name: 'main',
+  name: 'Main',
+  data () {
+    return {
+      currentComponent: 'Home'
+    }
+  },
   components: {
     ToolBar,
-    Home
+    // 组件的异步引入
+    Home: () => import('./Home'),
+    Shopping: () => import('./Shopping'),
+    My: () => import('./My')
   },
   methods: {
     changeMenu (e) {
-      console.log(e)
-      router.push(e)
+      this.currentComponent = e
     }
   }
 }
@@ -27,7 +33,6 @@ export default {
 
 <style lang="scss">
   @import "../assets/css/base";
-  span{
-    font-size: $fontSize;
+  .main{
   }
 </style>

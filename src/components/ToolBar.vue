@@ -52,6 +52,9 @@ export default {
 <style lang="scss">
   @import "../assets/css/base";
   .tool-bar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
     display: flex;
     height: px2rem(46);
     justify-content: space-around;

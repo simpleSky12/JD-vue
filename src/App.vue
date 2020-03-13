@@ -9,4 +9,9 @@
 
 <style lang="scss">
   @import "@css/base";
+
+  #app {
+    height: 100%;
+    width: 100%;
+  }
 </style>
