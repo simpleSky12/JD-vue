@@ -16,17 +16,22 @@ export default {
   },
   data () {
     return {
-      swiperImgs: [
-        require('../assets/img/swiper-1.jpg'),
-        require('../assets/img/swiper-2.jpg'),
-        require('../assets/img/swiper-3.jpg'),
-        require('../assets/img/swiper-4.jpg'),
-        require('../assets/img/swiper-5.jpg'),
-        require('../assets/img/swiper-6.jpg'),
-        require('../assets/img/swiper-7.jpg'),
-        require('../assets/img/swiper-8.jpg')
-      ],
+      swiperImgs: [],
       swiperHeight: '184px'
+    }
+  },
+  created () {
+    this.initSwiper()
+  },
+  methods: {
+    initSwiper () {
+      this.$http.get('/swiper')
+        .then(res => {
+          const list = res.data.list
+          this.swiperImgs = list.map(item => item.icon)
+        }).catch(error => {
+          console.log(error)
+        })
     }
   }
 }
