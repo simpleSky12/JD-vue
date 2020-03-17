@@ -26,7 +26,7 @@ axios.interceptors.request.use(config => {
 
 axios.interceptors.response.use(response => {
   // 统一处理数据
-  return response.data
+  return response.data.data
 }, error => {
   // 处理错误请求
   return Promise.reject(error)

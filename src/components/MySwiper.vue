@@ -7,9 +7,9 @@
     -->
     <swiper :options="swiperOptions">
       <swiper-slide v-for="(item,index) in swiperImgs" :key="index">
-        <img class="img"
+        <img class="swiperImg"
              :style="{height: height}"
-             :src="item" alt="">
+             :src="item.icon" alt="">
       </swiper-slide>
       <template v-slot:pagination>
         <div class="swiper-pagination"></div>
@@ -78,6 +78,10 @@ export default {
       &.swiper-pagination-bullet-active{
         background-color: #fff;
       }
+    }
+    img{
+      width: 100%;
+      display: flex;
     }
   }
 </style>
