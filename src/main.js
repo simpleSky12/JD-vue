@@ -6,6 +6,8 @@ import store from './store'
 import '@js/htmlFontSize'
 // 配置 axios 请求
 import '@js/axios.config'
+// 格式过滤器
+import '@js/filter.js'
 
 Vue.config.productionTip = false
 

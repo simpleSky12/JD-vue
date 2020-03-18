@@ -10,8 +10,16 @@
              :key="index" :src="item.icon" alt="">
       </div>
     </activity>
-
+    <!--八宫格菜单-->
     <mode-options></mode-options>
+    <!--秒杀商品-->
+    <second-kill :dataSource="secondKill"></second-kill>
+    <!--拼购节-->
+    <activity>
+      <div class="pin-gou">
+        <img src="@img/pinGouJie.gif" alt="">
+      </div>
+    </activity>
   </div>
 </div>
 </template>
@@ -20,19 +28,22 @@
 import MySwiper from '../components/MySwiper'
 import Activity from '../components/Activity'
 import ModeOptions from '../components/ModeOptions'
+import SecondKill from '../components/SecondKill'
 
 export default {
   name: 'Home',
   components: {
     MySwiper,
     Activity,
-    ModeOptions
+    ModeOptions,
+    SecondKill
   },
   data () {
     return {
       swiperImgs: [],
       swiperHeight: '184px',
-      activityData: []
+      activityData: [],
+      secondKill: []
     }
   },
   created () {
@@ -54,10 +65,12 @@ export default {
     initHomeData () {
       this.$http.all([
         this.$http.get('/swiper'),
-        this.$http.get('/activitys')
-      ]).then(this.$http.spread((swiperImgs, activityData) => {
+        this.$http.get('/activitys'),
+        this.$http.get('/seconds')
+      ]).then(this.$http.spread((swiperImgs, activityData, secondKill) => {
         this.swiperImgs = swiperImgs.list
         this.activityData = activityData.list
+        this.secondKill = secondKill.list
       }))
     }
   }
@@ -68,6 +81,7 @@ export default {
   @import "../assets/css/base";
 
   .home{
+    padding-bottom: px2rem(50);
     background-color: $bgColor;
 
     .content{
@@ -81,6 +95,13 @@ export default {
         img{
           width: 33.3%;
           display: inline-block;
+        }
+      }
+      .pin-gou{
+        background-color: #ffffff;
+        img{
+          display: flex;
+          width: 100%;
         }
       }
     }
