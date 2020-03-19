@@ -20,6 +20,8 @@
         <img src="@img/pinGouJie.gif" alt="">
       </div>
     </activity>
+    <!--商品瀑布流-->
+    <goods></goods>
   </div>
 </div>
 </template>
@@ -29,6 +31,7 @@ import MySwiper from '../components/MySwiper'
 import Activity from '../components/Activity'
 import ModeOptions from '../components/ModeOptions'
 import SecondKill from '../components/SecondKill'
+import Goods from '../components/Goods'
 
 export default {
   name: 'Home',
@@ -36,7 +39,8 @@ export default {
     MySwiper,
     Activity,
     ModeOptions,
-    SecondKill
+    SecondKill,
+    Goods
   },
   data () {
     return {
