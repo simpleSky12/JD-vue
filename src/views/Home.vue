@@ -1,6 +1,8 @@
 <template>
 <div class="home">
   <div class="content">
+    <!--顶部搜索框-->
+    <navigation-bar></navigation-bar>
     <!--swiper 组件-->
     <my-swiper :swiper-imgs="swiperImgs" :height="swiperHeight"></my-swiper>
     <!--活动组件-->
@@ -32,6 +34,7 @@ import Activity from '../components/Activity'
 import ModeOptions from '../components/ModeOptions'
 import SecondKill from '../components/SecondKill'
 import Goods from '../components/Goods'
+import NavigationBar from '../components/NavigationBar'
 
 export default {
   name: 'Home',
@@ -40,7 +43,8 @@ export default {
     Activity,
     ModeOptions,
     SecondKill,
-    Goods
+    Goods,
+    NavigationBar
   },
   data () {
     return {

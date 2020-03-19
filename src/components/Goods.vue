@@ -12,8 +12,12 @@
         <img class="goods-item-img" :src="item.img"
              :style="imgHeightStyle[index]" alt="">
         <div class="goods-item-desc">
-          <!--TODO 判断是否缺货，是否为直营-->
-          <p class="name text-line-2">{{item.name}}</p>
+          <p class="name text-line-2" :class="{'hint-name' : !item.isHave}">
+            <!--TODO 判断是否缺货，是否为直营-->
+            <direct v-if="item.isDirect"></direct>
+            <no-have v-if="!item.isHave"></no-have>
+            {{item.name}}
+          </p>
           <div class="data">
             <p class="price">￥{{item.price | priceVlue}}</p>
             <p class="volume">销量:{{item.volume}}</p>
@@ -24,8 +28,14 @@
 </template>
 
 <script>
+import NoHave from './NoHave'
+import Direct from './Direct'
 export default {
   name: 'Goods',
+  components: {
+    NoHave,
+    Direct
+  },
   data () {
     return {
       goods: [],
@@ -37,7 +47,7 @@ export default {
       waterfallHeight: 0 // 瀑布流组件的总高度
     }
   },
-  async created () {
+  created () {
     this.initGoods()
   },
   methods: {
@@ -134,6 +144,9 @@ export default {
         width: 100%;
         .name{
           line-height: px2rem(18);
+        }
+        .hint-name{
+          color: $hintColor !important;
         }
         .data{
           display: flex;
