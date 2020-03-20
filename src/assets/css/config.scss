@@ -6,7 +6,7 @@ $rootFontSize: 375/10;
   @return $px/$rootFontSize + rem;
 }
 
-//  定义正文的 字体大小
+//  默认 字体大小
 $fontSize: px2rem(14);
 // 标题字体大小
 $titleSize:px2rem(16);

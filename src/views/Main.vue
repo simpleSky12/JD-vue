@@ -34,5 +34,6 @@ export default {
 <style lang="scss">
   @import "../assets/css/base";
   .main{
+    height: 100%;
   }
 </style>
